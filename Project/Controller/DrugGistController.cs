@@ -24,13 +24,13 @@ namespace Manage.Controller
             var drugstores = _drugStoreRepository.GetAll();
             if (drugstores.Count != 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist name");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist name");
                 string name = Console.ReadLine();
 
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist surname");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist surname");
                 string surname = Console.ReadLine();
 
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist age");
+                Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist age");
                 string age = Console.ReadLine();
                 byte drugGistAge;
                 bool result = byte.TryParse(age, out drugGistAge);
@@ -39,14 +39,14 @@ namespace Manage.Controller
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist experience");
                     string experience = Console.ReadLine();
                     byte drugGistExperience;
-                    bool result1 = byte.TryParse(experience, out drugGistExperience);
+                    bool result1 = byte.TryParse(experience, out drugGistExperience); 
 
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "All drugstores");
                     foreach (var drugstore in drugstores)
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $" ID - {drugstore.ID} Name - {drugstore.Name}");
                     }
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter drugstore ID");
+                ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter drugstore ID");
                     string id = Console.ReadLine();
                     int drugstoreID;
                     bool result2 = int.TryParse(id, out drugstoreID);
@@ -68,17 +68,21 @@ namespace Manage.Controller
                         else
                         {
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Including drugstore doesn't exist");
+                            goto ID;
+
                         }
 
                     }
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter drugstore ID in correct format");
+                        goto ID;
                     }
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please enter experience in correct format");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter age in correct format");
+                    goto Age;
                 }
                 
             }
@@ -139,7 +143,7 @@ namespace Manage.Controller
                             }
                             else
                             {
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter experience in correct format");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter age in correct format");
                             }
 
                         }
