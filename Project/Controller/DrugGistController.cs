@@ -3,9 +3,11 @@ using Core.Helper;
 using DataAccess.Implementations;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Console = Colorful.Console;
 
 namespace Manage.Controller
 {
@@ -21,6 +23,7 @@ namespace Manage.Controller
 
         public void Create()
         {
+                
             var drugstores = _drugStoreRepository.GetAll();
             if (drugstores.Count != 0)
             {
@@ -36,17 +39,17 @@ namespace Manage.Controller
                 bool result = byte.TryParse(age, out drugGistAge);
                 if (result)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist experience");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist experience");
                     string experience = Console.ReadLine();
                     byte drugGistExperience;
                     bool result1 = byte.TryParse(experience, out drugGistExperience); 
 
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "All drugstores");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All drugstores");
                     foreach (var drugstore in drugstores)
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $" ID - {drugstore.ID} Name - {drugstore.Name}");
                     }
-                ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter drugstore ID");
+                ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter drugstore ID");
                     string id = Console.ReadLine();
                     int drugstoreID;
                     bool result2 = int.TryParse(id, out drugstoreID);
@@ -124,7 +127,7 @@ namespace Manage.Controller
                         if (result)
                         {
 
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter druggist new experience");
+                        Experience: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist new experience");
                             string experience = Console.ReadLine();
                             byte drgExperience;
                             var result1 = byte.TryParse(experience, out drgExperience);
@@ -143,15 +146,21 @@ namespace Manage.Controller
                             }
                             else
                             {
-                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter age in correct format");
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter experience in correct format");
+                                goto Experience;
                             }
 
                         }
                         else
                         {
-                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Druggist doesn't exist with this ID");
-                            goto ID;
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter age in correct format");
                         }
+                        
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Druggist doesn't exist with this ID");
+                        goto ID;
                     }
                 }
                 else
@@ -168,12 +177,12 @@ namespace Manage.Controller
             var druggists = _drugGistRepository.GetAll();
             if (druggists.Count > 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "All druggist list");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All druggist list");
                 foreach (var druggist in druggists)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"ID - {druggist.ID} Name - {druggist.Name} Surname - {druggist.Surname} Age - {druggist.Age}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID - {druggist.ID} Name - {druggist.Name} Surname - {druggist.Surname} Age - {druggist.Age}");
                 }
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist ID");
+            ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter druggist ID");
                 string id = Console.ReadLine();
                 int drugGistID;
                 bool result = int.TryParse(id, out drugGistID);
@@ -189,11 +198,13 @@ namespace Manage.Controller
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Druggist doesn't exist with this ID");
+                        goto ID;
                     }
                 }
                 else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter druggist ID in correct format");
+                    goto ID;
                 }
             }
             else
@@ -210,7 +221,7 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All druggist list");
                 foreach (var druggist in druggists)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"ID -- {druggist.ID} Name - {druggist.Surname} Surname - {druggist.Surname} Age - {druggist.Age} Experience - {druggist.Experience}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID -- {druggist.ID} Name -- {druggist.Surname} Surname -- {druggist.Surname} Age -- {druggist.Age} Experience -- {druggist.Experience}");
                 }
             }
             else
@@ -224,12 +235,12 @@ namespace Manage.Controller
             var drugstores = _drugStoreRepository.GetAll();
             if (drugstores.Count > 0)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "All drugstore list");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All drugstore list");
                 foreach (var drugstore in drugstores)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, $"ID -- {drugstore.ID} Name -- {drugstore.Name} Address -- {drugstore.Address} ");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID -- {drugstore.ID} Name -- {drugstore.Name} Address -- {drugstore.Address} ");
                 }
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter drugstore ID");
+            ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter drugstore ID");
                 string id = Console.ReadLine();
                 int drugStoreID;
                 var result = int.TryParse(id, out drugStoreID);
@@ -255,13 +266,14 @@ namespace Manage.Controller
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Druggist doesn't exist with this ID");
+                        goto ID;
 
                     }
                 }
                 else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter druggist ID in correct format");
-
+                    goto ID;
                 }
             }
             else

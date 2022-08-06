@@ -29,7 +29,8 @@ namespace Core.Constants
         DeleteDrugGist,
         GetAllDrugGist,
         GetAllDrugGistByDrugStore,
-        
+        Logout,
+        MainMenu,
         
 
     }

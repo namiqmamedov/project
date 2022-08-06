@@ -42,7 +42,7 @@ namespace Manage.Controller
             {
                 foreach (var owner in owners)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"ID - {owner.ID}  Fullname - {owner.Name} {owner.Surname}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID - {owner.ID}  Fullname - {owner.Name} {owner.Surname}");
                 }
             ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter owner ID");
                 string id = Console.ReadLine();
@@ -75,18 +75,19 @@ namespace Manage.Controller
                     }
                     else
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Owner doens't exist with this ID");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Owner doens't exist with this ID");
                         goto ID;
                     }
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct ID");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter ID in correct format");
+                    goto ID;
                 }
             }
             else
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There are not any owner");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any owner");
             }
 
         }
@@ -101,9 +102,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All owner list");
                 foreach (var owner in owners)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"ID - {owner.ID} Fullname - {owner.Name} {owner.Surname}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID - {owner.ID} Fullname - {owner.Name} {owner.Surname}");
                 }
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter owner ID");
+                ID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter owner ID");
                 string id = Console.ReadLine();
                 int ownerID;
                 var result = int.TryParse(id, out ownerID);
@@ -119,11 +120,13 @@ namespace Manage.Controller
                     else
                     {
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Owner doesn't exist with this ID");
+                        goto ID;
                     }
                 }
                 else
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Enter ID in correct format");
+                    goto ID;
                 }
 
             }
@@ -141,7 +144,8 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "All owner list");
                 foreach (var owner in owners)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, $"ID -- {owner.ID} Fullname -- {owner.Name} {owner.Surname}");
+                                                        
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, $"ID -- {owner.ID} Fullname -- {owner.Name} {owner.Surname}");
                 }
             }
             else

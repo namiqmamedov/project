@@ -18,14 +18,14 @@ namespace DataAccess.Contexts
             Drugs = new List<Drug>();
             Admins = new List<Admin>();
 
-            string password1 = "blacklivesmatter52";
+            string password1 = "toor";
             var hashedPassword1 = PasswordHasher.Encrypt(password1);
             Admin admin1 = new Admin("root", hashedPassword1);
             Admins.Add(admin1);
 
-            string password2 = "wannacry173";
+            string password2 = "kali";
             var hashedPassword2 = PasswordHasher.Encrypt(password2);
-            Admin admin2 = new Admin("gramadell", hashedPassword2);
+            Admin admin2 = new Admin("deko2", hashedPassword2);
             Admins.Add(admin2);
         }
         public static List<Owner> Owners { get; set; }

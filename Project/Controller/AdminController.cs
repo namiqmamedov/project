@@ -27,9 +27,14 @@ namespace Manage.Controller
             string password = Console.ReadLine();
 
             var admin = _adminRepository.Get(a => a.Username.ToLower() == username.ToLower() && PasswordHasher.Decrypt(a.Password) == password);
-
+            //Console.WriteLine(admin.Password);
             return admin;
         }
 
+        public Admin Logout()
+        {
+            return Authenticate();
+        }
+       
     }
 }

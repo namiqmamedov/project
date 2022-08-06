@@ -118,3 +118,4 @@ C:\Users\ACER\source\repos\praktik-master\Project\obj\Debug\net6.0\refint\Manage
 C:\Users\ACER\source\repos\praktik-master\Project\obj\Debug\net6.0\Manage.pdb
 C:\Users\ACER\source\repos\praktik-master\Project\obj\Debug\net6.0\Manage.genruntimeconfig.cache
 C:\Users\ACER\source\repos\praktik-master\Project\obj\Debug\net6.0\ref\Manage.dll
+C:\Users\ACER\source\repos\praktik-master\Project\bin\Debug\net6.0\Colorful.Console.dll

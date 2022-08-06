@@ -27,7 +27,7 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "https://nuget.org/api/v2": {}
       },
       "frameworks": {
         "net6.0": {

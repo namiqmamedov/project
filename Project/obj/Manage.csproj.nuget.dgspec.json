@@ -21,7 +21,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "https://nuget.org/api/v2": {}
         },
         "frameworks": {
           "net6.0": {
@@ -74,7 +74,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "https://nuget.org/api/v2": {}
         },
         "frameworks": {
           "net6.0": {
@@ -131,7 +131,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "https://nuget.org/api/v2": {}
         },
         "frameworks": {
           "net6.0": {
@@ -152,6 +152,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Colorful.Console": {
+              "target": "Package",
+              "version": "[1.2.15, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
