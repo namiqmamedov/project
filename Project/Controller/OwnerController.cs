@@ -18,6 +18,8 @@ namespace Manage.Controller
             _ownerRepository = new OwnerRepository();
         }
 
+
+        #region Create
         public void Create()
         {
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Gray, "Enter owner name:");
@@ -34,7 +36,9 @@ namespace Manage.Controller
             _ownerRepository.Create(owner);
             
         }
+        #endregion
 
+        #region Update
         public void Update()
         {
             var owners = _ownerRepository.GetAll();
@@ -92,7 +96,9 @@ namespace Manage.Controller
 
         }
 
+        #endregion
 
+        #region Delete
 
         public void Delete()
         {
@@ -136,6 +142,9 @@ namespace Manage.Controller
             }
 
         }
+        #endregion
+
+        #region GetAll
         public void GetAll()
         {
             var owners = _ownerRepository.GetAll();
@@ -153,6 +162,8 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any owners");
             }
         }
+
+        #endregion
     }
 }
 

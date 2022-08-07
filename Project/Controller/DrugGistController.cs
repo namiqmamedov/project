@@ -21,6 +21,7 @@ namespace Manage.Controller
             _drugStoreRepository = new DrugStoreRepository();
         }
 
+        #region Create
         public void Create()
         {
                 
@@ -95,7 +96,9 @@ namespace Manage.Controller
             }
 
         }
+        #endregion
 
+        #region Update
         public void Update()
         {
             var druggists = _drugGistRepository.GetAll();
@@ -168,10 +171,11 @@ namespace Manage.Controller
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any druggist");
                 }
             }
-
-
+            
         }
+        #endregion
 
+        #region Delete
         public void Delete()
         {
             var druggists = _drugGistRepository.GetAll();
@@ -212,7 +216,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any druggist");
             }
         }
+        #endregion
 
+        #region GetAll
         public void GetAll()
         {
             var druggists = _drugGistRepository.GetAll();
@@ -229,7 +235,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is not any druggists");
             }
         }
+        #endregion
 
+        #region GetALllDrugGistByDrugStore
         public void GetAllDrugGistByDrugstore()
         {
             var drugstores = _drugStoreRepository.GetAll();
@@ -283,4 +291,5 @@ namespace Manage.Controller
         }
 
     }
+    #endregion
 }

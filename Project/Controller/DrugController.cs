@@ -22,6 +22,7 @@ namespace Manage.Controller
             _drugStoreRepository = new DrugStoreRepository();
         }
 
+        #region Create
         public void Create()
         {           
             var drugstores = _drugStoreRepository.GetAll();
@@ -83,8 +84,6 @@ namespace Manage.Controller
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Please, enter drugstore ID in correct format");
                         goto ID;
                     }
-
-
                 }
                 else
                 {
@@ -92,18 +91,15 @@ namespace Manage.Controller
                     goto Count;
 
                 }
-
-
-
             }
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "You must create drugstore before creating drugs");
             }
-
-
         }
+        #endregion
 
+        #region Update
         public void Update()
         {
             var drugs = _drugRepository.GetAll();
@@ -176,7 +172,9 @@ namespace Manage.Controller
             }
 
         }
+        #endregion
 
+        #region Delete
         public void Delete()
         {
             var drugs = _drugRepository.GetAll();
@@ -219,6 +217,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any drugs");
             }
         }
+        #endregion
+
+        #region GetAll
 
         public void GetAll()
         {
@@ -236,6 +237,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is no any drugs");
             }
         }
+        #endregion
+
+        #region GetAllDrugsByDrugStore
 
         public void GetAllDrugsByDrugStore()
         {
@@ -288,7 +292,9 @@ namespace Manage.Controller
             }
         }
 
+        #endregion
 
+        #region Filter
         public void Filter()
         {
             var drugs = _drugRepository.GetAll();
@@ -320,5 +326,7 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is no drugs here");
             }
         }
+
+        #endregion
     }
 }

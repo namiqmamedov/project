@@ -23,6 +23,7 @@ namespace Manage.Controller
             _drugRepository = new DrugRepository();
         }
 
+        #region Create
         public void Create()
         {              
             var owners = _ownerRepository.GetAll();
@@ -82,6 +83,9 @@ namespace Manage.Controller
             }
 
         }
+        #endregion
+
+        #region Update
 
         public void Update()
         {
@@ -137,6 +141,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any owner");
             }
         }
+        #endregion
+
+        #region Delete
 
         public void Delete()
         {
@@ -179,6 +186,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any drugstore");
             }
         }
+        #endregion
+
+        #region GetAll
 
         public void GetAll()
         {
@@ -196,6 +206,9 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is not any drugstores");
             }
         }
+        #endregion
+
+        #region GetAllDrugStoresByOwner
 
         public void GetAllDrugStoresByOwner()
         {
@@ -248,6 +261,10 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There is not any owner");
             }
         }
+
+        #endregion
+
+        #region Sale
 
         public void Sale()
         {
@@ -319,5 +336,6 @@ namespace Manage.Controller
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "There are not any drugs");
             }
         }
+        #endregion
     }
 }
